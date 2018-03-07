@@ -15,7 +15,7 @@ KNOWN_WORD_TOKENS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday',
                      'saturday', 'sunday', 'january', 'february', 'march',
                      'april', 'may', 'june', 'july', 'august', 'september',
                      'october', 'november', 'december', 'year', 'month', 'week',
-                     'day', 'hour', 'minute', 'second', 'ago', 'in', 'am', 'pm']
+                     'day', 'hour', 'minute', 'second', 'ago', 'in', 'am', 'pm', 'at']
 
 PARENTHESES_PATTERN = re.compile(r'[\(\)]')
 NUMERAL_PATTERN = re.compile(r'(\d+)')

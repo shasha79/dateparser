@@ -209,10 +209,16 @@ class Locale(object):
                     original_chunk.append(original_tokens[i])
                 else:
                     if translated_chunk:
-                        translated.append(translated_chunk)
-                        translated_chunk = []
-                        original.append(original_chunk)
-                        original_chunk = []
+                        # concatenate with last detected chunk to check if chunk can be extended
+                        word_phrase = "{} {}".format(simplified_tokens[i-1], word)
+                        if word_phrase in dictionary:
+                            original_chunk[-1] = "{} {}".format(original_tokens[i-1], original_tokens[i])
+                            translated_chunk[-1] = dictionary[word_phrase]
+                        else:
+                            translated.append(translated_chunk)
+                            translated_chunk = []
+                            original.append(original_chunk)
+                            original_chunk = []
             if translated_chunk:
                 translated.append(translated_chunk)
                 original.append(original_chunk)
